@@ -1,11 +1,11 @@
 <template>
   <div class="flex flex-wrap py-1 -m-px">
     <transition-group
-      enter-from-class="opacity-0"
+      enter-class="opacity-0"
       enter-to-class="opacity-100"
       enter-active-class="transition-opacity duration-300 ease-out"
       leave-active-class="transition-opacity duration-200 ease-in"
-      leave-from-class="opacity-100"
+      leave-class="opacity-100"
       leave-to-class="opacity-0"
     >
       <div

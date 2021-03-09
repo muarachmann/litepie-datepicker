@@ -54,11 +54,11 @@
       </label>
     </slot>
     <transition
-      enter-from-class="translate-y-3 opacity-0"
+      enter-class="translate-y-3 opacity-0"
       enter-to-class="translate-y-0 opacity-100"
       enter-active-class="transition duration-200 ease-out transform"
       leave-active-class="transition duration-150 ease-in transform"
-      leave-from-class="translate-y-0 opacity-100"
+      leave-class="translate-y-0 opacity-100"
       leave-to-class="translate-y-3 opacity-0"
     >
       <div
