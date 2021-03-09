@@ -1,10 +1,10 @@
 <template>
-  <div class="flex flex-wrap -m-px py-1">
+  <div class="flex flex-wrap py-1 -m-px">
     <transition-group
       enter-from-class="opacity-0"
       enter-to-class="opacity-100"
-      enter-active-class="transition-opacity ease-out duration-300"
-      leave-active-class="transition-opacity ease-in duration-200"
+      enter-active-class="transition-opacity duration-300 ease-out"
+      leave-active-class="transition-opacity duration-200 ease-in"
       leave-from-class="opacity-100"
       leave-to-class="opacity-0"
     >
@@ -17,15 +17,15 @@
         class="my-px"
       >
         <div
-          class="relative flex-1 flex justify-center"
+          class="relative flex justify-center flex-1"
           :class="{ 'litepie-tooltip': asRange && date.duration() }"
           :data-tooltip="`${date.duration()}`"
         >
           <transition
             enter-from-class="opacity-0"
             enter-to-class="opacity-100"
-            enter-active-class="transition-opacity ease-out duration-200"
-            leave-active-class="transition-opacity ease-in duration-150"
+            enter-active-class="transition-opacity duration-200 ease-out"
+            leave-active-class="transition-opacity duration-150 ease-in"
             leave-from-class="opacity-100"
             leave-to-class="opacity-0"
           >
@@ -37,7 +37,7 @@
           </transition>
           <button
             type="button"
-            class="litepie-datepicker-date relative w-10 h-10 lg:w-9 lg:h-9 flex justify-center items-center text-xs 2xl:text-sm focus:outline-none"
+            class="relative flex items-center justify-center w-10 h-10 text-xs litepie-datepicker-date lg:w-9 lg:h-9 2xl:text-sm focus:outline-none"
             :class="[
               datepickerClasses(date),
               asRange ? 'transition-all' : 'transition-colors'
@@ -55,7 +55,7 @@
 </template>
 
 <script>
-import { inject } from 'vue';
+import { inject } from '@vue/composition-api';
 
 export default {
   name: 'LitepieCalendar',

@@ -1,7 +1,7 @@
 <template>
   <div
     v-if="asRange && !asSingle"
-    class="relative w-full border-t sm:border-t-0 sm:border-r border-black border-opacity-10 order-last sm:order-none dark:border-litepie-secondary-700 dark:border-opacity-100 sm:mt-1 sm:mr-1"
+    class="relative order-last w-full border-t border-black sm:border-t-0 sm:border-r border-opacity-10 sm:order-none dark:border-litepie-secondary-700 dark:border-opacity-100 sm:mt-1 sm:mr-1"
   >
     <ol
       v-if="withShortcut()"
@@ -80,7 +80,7 @@
 </template>
 
 <script>
-import { inject } from 'vue';
+import { inject } from '@vue/composition-api';
 
 export default {
   name: 'LitepieShortcut',

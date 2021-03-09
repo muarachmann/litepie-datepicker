@@ -72,7 +72,7 @@ const external = [
   'dayjs/plugin/isToday',
   'dayjs/plugin/isBetween',
   'dayjs/plugin/duration',
-  'vue'
+  '@vue/composition-api'
 ];
 
 // UMD/IIFE shared settings: output.globals
@@ -86,7 +86,7 @@ const globals = {
   'dayjs/plugin/isToday': 'isToday',
   'dayjs/plugin/isBetween': 'isBetween',
   'dayjs/plugin/duration': 'duration',
-  vue: 'Vue'
+  '@vue/composition-api': 'vueCompositionApi'
 };
 
 // Customize configs for individual targets

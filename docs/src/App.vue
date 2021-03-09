@@ -5,16 +5,16 @@
       class="absolute right-1.5 top-1/3 mt-40 sm:mt-0 sm:top-0 bottom-0 w-full xl:w-1/2 bg-light-blue-500 shadow-2xl rounded-tl-3xl transform translate-x-10 sm:translate-x-24 translate-y-32 sm:translate-y-1/2 lg:translate-y-1/2 xl:translate-y-36 -rotate-6"
     ></div>
     <div
-      class="absolute right-0 top-1/3 mt-40 sm:mt-0 sm:top-0 bottom-0 w-full xl:w-1/2 bg-white shadow-lg rounded-tl-3xl overflow-hidden transform translate-x-10 sm:translate-x-24 translate-y-32 sm:translate-y-1/2 lg:translate-y-1/2 xl:translate-y-36 -rotate-2 border border-black border-opacity-5"
+      class="absolute bottom-0 right-0 w-full mt-40 overflow-hidden transform translate-x-10 translate-y-32 bg-white border border-black shadow-lg top-1/3 sm:mt-0 sm:top-0 xl:w-1/2 rounded-tl-3xl sm:translate-x-24 sm:translate-y-1/2 lg:translate-y-1/2 xl:translate-y-36 -rotate-2 border-opacity-5"
     >
       <div class="relative">
         <div
-          class="absolute inset-x-0 px-4 py-4 space-x-3 lg:space-x-4 bg-gradient-to-r from-gray-100 to-white flex items-center border-b border-black border-opacity-5"
+          class="absolute inset-x-0 flex items-center px-4 py-4 space-x-3 border-b border-black lg:space-x-4 bg-gradient-to-r from-gray-100 to-white border-opacity-5"
         >
           <div class="inline-flex space-x-1.5">
-            <div class="w-3 h-3 border-2 rounded-full border-red-500"></div>
-            <div class="w-3 h-3 border-2 rounded-full border-yellow-400"></div>
-            <div class="w-3 h-3 border-2 rounded-full border-green-400"></div>
+            <div class="w-3 h-3 border-2 border-red-500 rounded-full"></div>
+            <div class="w-3 h-3 border-2 border-yellow-400 rounded-full"></div>
+            <div class="w-3 h-3 border-2 border-green-400 rounded-full"></div>
           </div>
           <div
             class="flex flex-grow items-center rounded-md px-3 py-2 space-x-1.5 bg-white border border-black border-opacity-5 shadow-sm"
@@ -55,10 +55,10 @@
   </div>
   <div class="absolute inset-0">
     <div class="space-y-20 sm:space-y-32 md:space-y-40 lg:space-y-44">
-      <header class="relative z-10 max-w-screen-lg xl:max-w-screen-xl mx-auto">
+      <header class="relative z-10 max-w-screen-lg mx-auto xl:max-w-screen-xl">
         <div class="relative px-4 sm:px-6 md:px-8 mb-14 sm:mb-20 xl:mb-8">
           <div
-            class="border-b border-gray-700 border-opacity-90 py-4 flex items-center justify-between mb-12 sm:mb-20 -mx-4 px-4 sm:mx-0 sm:px-0 lg:mb-24 xl:mb-28"
+            class="flex items-center justify-between px-4 py-4 mb-12 -mx-4 border-b border-gray-700 border-opacity-90 sm:mb-20 sm:mx-0 sm:px-0 lg:mb-24 xl:mb-28"
           >
             <div class="flex">
               <a href="/" class="block">
@@ -70,11 +70,11 @@
               </a>
             </div>
             <div
-              class="flex items-center space-x-6 sm:space-x-10 ml-6 sm:ml-10"
+              class="flex items-center ml-6 space-x-6 sm:space-x-10 sm:ml-10"
             >
               <a
                 href="https://github.com/kenhyuwa/litepie-datepicker"
-                class="text-gray-300 hover:text-gray-400 transition-colors duration-200"
+                class="text-gray-300 transition-colors duration-200 hover:text-gray-400"
                 target="_blank"
               >
                 <span class="sr-only">
@@ -96,21 +96,21 @@
           </div>
           <div class="max-w-screen-md">
             <h1
-              class="text-4xl sm:text-6xl lg:text-7xl leading-none font-extrabold tracking-tight text-white mt-10 mb-8 sm:mt-14 sm:mb-10"
+              class="mt-10 mb-8 text-4xl font-extrabold leading-none tracking-tight text-white sm:text-6xl lg:text-7xl sm:mt-14 sm:mb-10"
             >
               Litepie Datepicker
             </h1>
             <p
-              class="max-w-screen-lg text-lg sm:text-2xl sm:leading-10 text-gray-300 font-medium tracking-tight mb-10 sm:mb-11"
+              class="max-w-screen-lg mb-10 text-lg font-medium tracking-tight text-gray-300 sm:text-2xl sm:leading-10 sm:mb-11"
             >
               A date range picker component for Vue.js and Tailwind CSS,
               dependent to day.js.
             </p>
             <div
-              class="flex flex-wrap space-y-4 sm:space-y-0 sm:space-x-4 sm:space-x-reverse text-center"
+              class="flex flex-wrap space-y-4 text-center sm:space-y-0 sm:space-x-4 sm:space-x-reverse"
             >
               <a
-                class="sm:order-last w-full sm:w-auto flex-none bg-light-blue-600 hover:bg-light-blue-700 text-white text-lg leading-6 font-semibold py-3 px-6 border border-transparent rounded-xl focus:ring-2 focus:ring-offset-2 focus:ring-offset-black focus:ring-light-blue-400 focus:outline-none transition ease-out duration-300"
+                class="flex-none w-full px-6 py-3 text-lg font-semibold leading-6 text-white transition duration-300 ease-out border border-transparent sm:order-last sm:w-auto bg-light-blue-600 hover:bg-light-blue-700 rounded-xl focus:ring-2 focus:ring-offset-2 focus:ring-offset-black focus:ring-light-blue-400 focus:outline-none"
                 href="#get-started"
               >
                 Get started
@@ -125,7 +125,7 @@
                 >
                   <button
                     type="button"
-                    class="w-full sm:w-auto flex-none bg-gray-50 text-gray-400 hover:text-gray-900 font-mono leading-6 py-3 sm:px-6 border border-gray-200 rounded-xl flex items-center justify-center space-x-2 sm:space-x-4 focus:ring-2 focus:ring-offset-2 focus:ring-offset-black focus:ring-gray-300 focus:outline-none transition ease-out duration-300"
+                    class="flex items-center justify-center flex-none w-full py-3 space-x-2 font-mono leading-6 text-gray-400 transition duration-300 ease-out border border-gray-200 sm:w-auto bg-gray-50 hover:text-gray-900 sm:px-6 rounded-xl sm:space-x-4 focus:ring-2 focus:ring-offset-2 focus:ring-offset-black focus:ring-gray-300 focus:outline-none"
                   >
                     <span class="text-gray-900">
                       {{ value || placeholder }}
@@ -141,10 +141,10 @@
   </div>
   <main id="get-started" class="pt-1">
     <div class="space-y-20 sm:space-y-32 md:space-y-40 lg:space-y-44">
-      <div class="max-w-screen-lg xl:max-w-screen-xl mx-auto">
+      <div class="max-w-screen-lg mx-auto xl:max-w-screen-xl">
         <section class="relative px-4 sm:px-6 md:px-8 mb-14 sm:mb-20 xl:mb-8">
           <div class="mt-16">
-            <h2 class="text-3xl tracking-tight font-extrabold text-gray-900">
+            <h2 class="text-3xl font-extrabold tracking-tight text-gray-900">
               Installation
             </h2>
             <div class="mt-2">
@@ -154,7 +154,7 @@
               </p>
             </div>
             <div
-              class="mt-6 px-6 py-5 bg-yellow-50 border border-yellow-100 rounded-lg"
+              class="px-6 py-5 mt-6 border border-yellow-100 rounded-lg bg-yellow-50"
             >
               <div class="flex items-center">
                 <span class="text-yellow-400">
@@ -199,17 +199,17 @@
             </div>
           </div>
           <div id="install-via-npm" class="pt-6 sm:pt-8">
-            <h3 class="group flex items-center font-semibold">
+            <h3 class="flex items-center font-semibold group">
               <a
                 href="#install-via-npm"
-                class="absolute after:hash opacity-0 group-hover:opacity-100 -ml-4 text-light-blue-400"
+                class="absolute -ml-4 opacity-0 after:hash group-hover:opacity-100 text-light-blue-400"
                 aria-label="Anchor"
               ></a>
               <span class="text-lg text-gray-900">
                 Install via npm
               </span>
             </h3>
-            <div class="rounded-xl overflow-hidden my-6">
+            <div class="my-6 overflow-hidden rounded-xl">
               <div class="bg-light-blue-500">
                 <v-prims language="atom">
                   $ npm install -S litepie-datepicker
@@ -218,17 +218,17 @@
             </div>
           </div>
           <div id="install-via-yarn" class="pt-6 sm:pt-8">
-            <h3 class="group flex items-center font-semibold">
+            <h3 class="flex items-center font-semibold group">
               <a
                 href="#install-via-yarn"
-                class="absolute after:hash opacity-0 group-hover:opacity-100 -ml-4 text-light-blue-400"
+                class="absolute -ml-4 opacity-0 after:hash group-hover:opacity-100 text-light-blue-400"
                 aria-label="Anchor"
               ></a>
               <span class="text-lg text-gray-900">
                 Install via yarn
               </span>
             </h3>
-            <div class="rounded-xl overflow-hidden my-6">
+            <div class="my-6 overflow-hidden rounded-xl">
               <div class="bg-light-blue-500">
                 <v-prims language="atom">
                   $ yarn add litepie-datepicker
@@ -237,10 +237,10 @@
             </div>
           </div>
           <div id="how-it-works" class="pt-6 sm:pt-8">
-            <h3 class="group flex items-center font-semibold">
+            <h3 class="flex items-center font-semibold group">
               <a
                 href="#how-it-works"
-                class="absolute after:hash opacity-0 group-hover:opacity-100 -ml-4 text-light-blue-400"
+                class="absolute -ml-4 opacity-0 after:hash group-hover:opacity-100 text-light-blue-400"
                 aria-label="Anchor"
               ></a>
               <span class="text-lg text-gray-900">
@@ -249,7 +249,7 @@
             </h3>
             <div>
               <p>Setup globally components</p>
-              <div class="rounded-xl overflow-hidden my-6">
+              <div class="my-6 overflow-hidden rounded-xl">
                 <div class="bg-light-blue-500">
                   <v-prims
                     language="js"
@@ -261,7 +261,7 @@
             </div>
             <div>
               <p>Setup as single components</p>
-              <div class="rounded-xl overflow-hidden my-6">
+              <div class="my-6 overflow-hidden rounded-xl">
                 <div class="bg-light-blue-500">
                   <v-prims language="html" :code="defaultContent.itWorks.asSFC">
                   </v-prims>
@@ -270,17 +270,17 @@
             </div>
           </div>
           <div id="configure-with-tailwind" class="pt-6 sm:pt-8">
-            <h3 class="group flex items-center font-semibold">
+            <h3 class="flex items-center font-semibold group">
               <a
                 href="#configure-with-tailwind"
-                class="absolute after:hash opacity-0 group-hover:opacity-100 -ml-4 text-light-blue-400"
+                class="absolute -ml-4 opacity-0 after:hash group-hover:opacity-100 text-light-blue-400"
                 aria-label="Anchor"
               ></a>
               <span class="text-lg text-gray-900">
                 Tailwind CSS configuration
               </span>
             </h3>
-            <div class="rounded-xl overflow-hidden my-6">
+            <div class="my-6 overflow-hidden rounded-xl">
               <div class="bg-light-blue-500">
                 <v-prims language="js" :code="defaultContent.twConfig">
                 </v-prims>
@@ -293,7 +293,7 @@
           class="relative px-4 sm:px-6 md:px-8 mb-14 sm:mb-20 xl:mb-8"
         >
           <div class="mt-16">
-            <h2 class="text-3xl tracking-tight font-extrabold text-gray-900">
+            <h2 class="text-3xl font-extrabold tracking-tight text-gray-900">
               Theming options
             </h2>
             <div class="mt-2">
@@ -308,10 +308,10 @@
             class="grid grid-cols-1 lg:grid-cols-2 gap-y-8 sm:gap-y-12 lg:gap-y-0 lg:gap-x-8"
           >
             <div id="light-mode" class="pt-6 sm:pt-8">
-              <h3 class="group flex items-center font-semibold">
+              <h3 class="flex items-center font-semibold group">
                 <a
                   href="#light-mode"
-                  class="absolute after:hash opacity-0 group-hover:opacity-100 -ml-4 text-light-blue-400"
+                  class="absolute -ml-4 opacity-0 after:hash group-hover:opacity-100 text-light-blue-400"
                   aria-label="Anchor"
                 ></a>
                 <span class="text-lg text-gray-900">
@@ -334,10 +334,10 @@
               </div>
             </div>
             <div id="dark-mode" class="pt-6 sm:pt-8">
-              <h3 class="group flex items-center font-semibold">
+              <h3 class="flex items-center font-semibold group">
                 <a
                   href="#dark-mode"
-                  class="absolute after:hash opacity-0 group-hover:opacity-100 -ml-4 text-light-blue-400"
+                  class="absolute -ml-4 opacity-0 after:hash group-hover:opacity-100 text-light-blue-400"
                   aria-label="Anchor"
                 ></a>
                 <span class="text-lg text-gray-900">
@@ -353,7 +353,7 @@
                     configuration.
                   </p>
                 </div>
-                <div class="dark w-full">
+                <div class="w-full dark">
                   <litepie-datepicker
                     v-model="dateValue.dark"
                     :formatter="formatter"
@@ -368,7 +368,7 @@
           class="relative px-4 sm:px-6 md:px-8 mb-14 sm:mb-20 xl:mb-8"
         >
           <div class="mt-16">
-            <h2 class="text-3xl tracking-tight font-extrabold text-gray-900">
+            <h2 class="text-3xl font-extrabold tracking-tight text-gray-900">
               Playground
             </h2>
             <div class="mt-2">
@@ -380,10 +380,10 @@
           </div>
           <div class="space-y-6 sm:space-y-10">
             <div id="default" class="pt-6 sm:pt-8">
-              <h3 class="group flex items-center font-semibold">
+              <h3 class="flex items-center font-semibold group">
                 <a
                   href="#default"
-                  class="absolute after:hash opacity-0 group-hover:opacity-100 -ml-4 text-light-blue-400"
+                  class="absolute -ml-4 opacity-0 after:hash group-hover:opacity-100 text-light-blue-400"
                   aria-label="Anchor"
                 ></a>
                 <span class="text-lg text-gray-900">
@@ -394,7 +394,7 @@
                 This config if you don't need change any <code>`props`</code>.
               </p>
               <div
-                class="mt-6 grid grid-cols-1 lg:grid-cols-2 gap-y-8 sm:gap-y-12 lg:gap-y-0 lg:gap-x-8"
+                class="grid grid-cols-1 mt-6 lg:grid-cols-2 gap-y-8 sm:gap-y-12 lg:gap-y-0 lg:gap-x-8"
               >
                 <div>
                   <litepie-datepicker
@@ -403,7 +403,7 @@
                   />
                 </div>
                 <div>
-                  <div class="rounded-xl overflow-hidden">
+                  <div class="overflow-hidden rounded-xl">
                     <div class="bg-light-blue-500">
                       <v-prims language="html" :code="playground.defaults">
                       </v-prims>
@@ -413,10 +413,10 @@
               </div>
             </div>
             <div id="overlay" class="pt-6 sm:pt-8">
-              <h3 class="group flex items-center font-semibold">
+              <h3 class="flex items-center font-semibold group">
                 <a
                   href="#overlay"
-                  class="absolute after:hash opacity-0 group-hover:opacity-100 -ml-4 text-light-blue-400"
+                  class="absolute -ml-4 opacity-0 after:hash group-hover:opacity-100 text-light-blue-400"
                   aria-label="Anchor"
                 ></a>
                 <span class="text-lg text-gray-900">
@@ -429,7 +429,7 @@
                 <i class="text-light-blue-400">false</i>.
               </p>
               <div
-                class="mt-6 grid grid-cols-1 lg:grid-cols-2 gap-y-8 sm:gap-y-12 lg:gap-y-0 lg:gap-x-8"
+                class="grid grid-cols-1 mt-6 lg:grid-cols-2 gap-y-8 sm:gap-y-12 lg:gap-y-0 lg:gap-x-8"
               >
                 <div>
                   <litepie-datepicker
@@ -439,7 +439,7 @@
                   />
                 </div>
                 <div>
-                  <div class="rounded-xl overflow-hidden">
+                  <div class="overflow-hidden rounded-xl">
                     <div class="bg-light-blue-500">
                       <v-prims language="html" :code="playground.overlay">
                       </v-prims>
@@ -449,10 +449,10 @@
               </div>
             </div>
             <div id="as-single" class="pt-6 sm:pt-8">
-              <h3 class="group flex items-center font-semibold">
+              <h3 class="flex items-center font-semibold group">
                 <a
                   href="#as-single"
-                  class="absolute after:hash opacity-0 group-hover:opacity-100 -ml-4 text-light-blue-400"
+                  class="absolute -ml-4 opacity-0 after:hash group-hover:opacity-100 text-light-blue-400"
                   aria-label="Anchor"
                 ></a>
                 <span class="text-lg text-gray-900">
@@ -464,7 +464,7 @@
                 <i class="text-light-blue-400">single date</i>.
               </p>
               <div
-                class="mt-6 grid grid-cols-1 lg:grid-cols-2 gap-y-8 sm:gap-y-12 lg:gap-y-0 lg:gap-x-8"
+                class="grid grid-cols-1 mt-6 lg:grid-cols-2 gap-y-8 sm:gap-y-12 lg:gap-y-0 lg:gap-x-8"
               >
                 <div>
                   <litepie-datepicker
@@ -474,7 +474,7 @@
                   />
                 </div>
                 <div>
-                  <div class="rounded-xl overflow-hidden">
+                  <div class="overflow-hidden rounded-xl">
                     <div class="bg-light-blue-500">
                       <v-prims language="html" :code="playground.asSingle">
                       </v-prims>
@@ -484,10 +484,10 @@
               </div>
             </div>
             <div id="as-single-use-range" class="pt-6 sm:pt-8">
-              <h3 class="group flex items-center font-semibold">
+              <h3 class="flex items-center font-semibold group">
                 <a
                   href="#as-single-use-range"
-                  class="absolute after:hash opacity-0 group-hover:opacity-100 -ml-4 text-light-blue-400"
+                  class="absolute -ml-4 opacity-0 after:hash group-hover:opacity-100 text-light-blue-400"
                   aria-label="Anchor"
                 ></a>
                 <span class="text-lg text-gray-900">
@@ -500,7 +500,7 @@
                 with range.
               </p>
               <div
-                class="mt-6 grid grid-cols-1 lg:grid-cols-2 gap-y-8 sm:gap-y-12 lg:gap-y-0 lg:gap-x-8"
+                class="grid grid-cols-1 mt-6 lg:grid-cols-2 gap-y-8 sm:gap-y-12 lg:gap-y-0 lg:gap-x-8"
               >
                 <div>
                   <litepie-datepicker
@@ -511,7 +511,7 @@
                   />
                 </div>
                 <div>
-                  <div class="rounded-xl overflow-hidden">
+                  <div class="overflow-hidden rounded-xl">
                     <div class="bg-light-blue-500">
                       <v-prims
                         language="html"
@@ -524,10 +524,10 @@
               </div>
             </div>
             <div id="placeholder" class="pt-6 sm:pt-8">
-              <h3 class="group flex items-center font-semibold">
+              <h3 class="flex items-center font-semibold group">
                 <a
                   href="#placeholder"
-                  class="absolute after:hash opacity-0 group-hover:opacity-100 -ml-4 text-light-blue-400"
+                  class="absolute -ml-4 opacity-0 after:hash group-hover:opacity-100 text-light-blue-400"
                   aria-label="Anchor"
                 ></a>
                 <span class="text-lg text-gray-900">
@@ -539,7 +539,7 @@
                 default placeholder use <code>`formatter.date`</code> object.
               </p>
               <div
-                class="mt-6 grid grid-cols-1 lg:grid-cols-2 gap-y-8 sm:gap-y-12 lg:gap-y-0 lg:gap-x-8"
+                class="grid grid-cols-1 mt-6 lg:grid-cols-2 gap-y-8 sm:gap-y-12 lg:gap-y-0 lg:gap-x-8"
               >
                 <div>
                   <litepie-datepicker
@@ -549,7 +549,7 @@
                   />
                 </div>
                 <div>
-                  <div class="rounded-xl overflow-hidden">
+                  <div class="overflow-hidden rounded-xl">
                     <div class="bg-light-blue-500">
                       <v-prims
                         language="html"
@@ -562,10 +562,10 @@
               </div>
             </div>
             <div id="separator" class="pt-6 sm:pt-8">
-              <h3 class="group flex items-center font-semibold">
+              <h3 class="flex items-center font-semibold group">
                 <a
                   href="#separator"
-                  class="absolute after:hash opacity-0 group-hover:opacity-100 -ml-4 text-light-blue-400"
+                  class="absolute -ml-4 opacity-0 after:hash group-hover:opacity-100 text-light-blue-400"
                   aria-label="Anchor"
                 ></a>
                 <span class="text-lg text-gray-900">
@@ -577,7 +577,7 @@
                 separator use <code>` ~ `</code>.
               </p>
               <div
-                class="mt-6 grid grid-cols-1 lg:grid-cols-2 gap-y-8 sm:gap-y-12 lg:gap-y-0 lg:gap-x-8"
+                class="grid grid-cols-1 mt-6 lg:grid-cols-2 gap-y-8 sm:gap-y-12 lg:gap-y-0 lg:gap-x-8"
               >
                 <div>
                   <litepie-datepicker
@@ -587,7 +587,7 @@
                   />
                 </div>
                 <div>
-                  <div class="rounded-xl overflow-hidden">
+                  <div class="overflow-hidden rounded-xl">
                     <div class="bg-light-blue-500">
                       <v-prims language="html" :code="playground.separator">
                       </v-prims>
@@ -597,10 +597,10 @@
               </div>
             </div>
             <div id="formatter" class="pt-6 sm:pt-8">
-              <h3 class="group flex items-center font-semibold">
+              <h3 class="flex items-center font-semibold group">
                 <a
                   href="#formatter"
-                  class="absolute after:hash opacity-0 group-hover:opacity-100 -ml-4 text-light-blue-400"
+                  class="absolute -ml-4 opacity-0 after:hash group-hover:opacity-100 text-light-blue-400"
                   aria-label="Anchor"
                 ></a>
                 <span class="text-lg text-gray-900">
@@ -611,7 +611,7 @@
                 Change <i class="text-light-blue-400">formatter</i>, default
                 <code>`formatter`</code>:
               </p>
-              <div class="mt-4 mb-2 rounded-xl overflow-hidden">
+              <div class="mt-4 mb-2 overflow-hidden rounded-xl">
                 <div class="bg-light-blue-500">
                   <v-prims
                     language="js"
@@ -626,7 +626,7 @@
                 </div>
               </div>
               <div
-                class="mt-6 grid grid-cols-1 lg:grid-cols-2 gap-y-8 sm:gap-y-12 lg:gap-y-0 lg:gap-x-8"
+                class="grid grid-cols-1 mt-6 lg:grid-cols-2 gap-y-8 sm:gap-y-12 lg:gap-y-0 lg:gap-x-8"
               >
                 <div>
                   <litepie-datepicker
@@ -638,7 +638,7 @@
                   />
                 </div>
                 <div>
-                  <div class="rounded-xl overflow-hidden">
+                  <div class="overflow-hidden rounded-xl">
                     <div class="bg-light-blue-500">
                       <v-prims language="html" :code="playground.formatter">
                       </v-prims>
@@ -648,10 +648,10 @@
               </div>
             </div>
             <div id="auto-apply" class="pt-6 sm:pt-8">
-              <h3 class="group flex items-center font-semibold">
+              <h3 class="flex items-center font-semibold group">
                 <a
                   href="#auto-apply"
-                  class="absolute after:hash opacity-0 group-hover:opacity-100 -ml-4 text-light-blue-400"
+                  class="absolute -ml-4 opacity-0 after:hash group-hover:opacity-100 text-light-blue-400"
                   aria-label="Anchor"
                 ></a>
                 <span class="text-lg text-gray-900">
@@ -664,7 +664,7 @@
                 <i class="text-light-blue-400">true</i>.
               </p>
               <div
-                class="mt-6 grid grid-cols-1 lg:grid-cols-2 gap-y-8 sm:gap-y-12 lg:gap-y-0 lg:gap-x-8"
+                class="grid grid-cols-1 mt-6 lg:grid-cols-2 gap-y-8 sm:gap-y-12 lg:gap-y-0 lg:gap-x-8"
               >
                 <div>
                   <litepie-datepicker
@@ -674,7 +674,7 @@
                   />
                 </div>
                 <div>
-                  <div class="rounded-xl overflow-hidden">
+                  <div class="overflow-hidden rounded-xl">
                     <div class="bg-light-blue-500">
                       <v-prims language="html" :code="playground.autoApply">
                       </v-prims>
@@ -684,10 +684,10 @@
               </div>
             </div>
             <div id="start-from" class="pt-6 sm:pt-8">
-              <h3 class="group flex items-center font-semibold">
+              <h3 class="flex items-center font-semibold group">
                 <a
                   href="#start-from"
-                  class="absolute after:hash opacity-0 group-hover:opacity-100 -ml-4 text-light-blue-400"
+                  class="absolute -ml-4 opacity-0 after:hash group-hover:opacity-100 text-light-blue-400"
                   aria-label="Anchor"
                 ></a>
                 <span class="text-lg text-gray-900">
@@ -700,7 +700,7 @@
                 <i class="text-light-blue-400">new Date()</i>.
               </p>
               <div
-                class="mt-6 grid grid-cols-1 lg:grid-cols-2 gap-y-8 sm:gap-y-12 lg:gap-y-0 lg:gap-x-8"
+                class="grid grid-cols-1 mt-6 lg:grid-cols-2 gap-y-8 sm:gap-y-12 lg:gap-y-0 lg:gap-x-8"
               >
                 <div>
                   <litepie-datepicker
@@ -710,7 +710,7 @@
                   />
                 </div>
                 <div>
-                  <div class="rounded-xl overflow-hidden">
+                  <div class="overflow-hidden rounded-xl">
                     <div class="bg-light-blue-500">
                       <v-prims language="html" :code="playground.startFrom">
                       </v-prims>
@@ -720,10 +720,10 @@
               </div>
             </div>
             <div id="shortcuts" class="pt-6 sm:pt-8">
-              <h3 class="group flex items-center font-semibold">
+              <h3 class="flex items-center font-semibold group">
                 <a
                   href="#shortcuts"
-                  class="absolute after:hash opacity-0 group-hover:opacity-100 -ml-4 text-light-blue-400"
+                  class="absolute -ml-4 opacity-0 after:hash group-hover:opacity-100 text-light-blue-400"
                   aria-label="Anchor"
                 ></a>
                 <span class="text-lg text-gray-900">
@@ -731,7 +731,7 @@
                 </span>
               </h3>
               <div
-                class="mt-6 grid grid-cols-1 lg:grid-cols-2 gap-y-8 sm:gap-y-12 lg:gap-y-0 lg:gap-x-8"
+                class="grid grid-cols-1 mt-6 lg:grid-cols-2 gap-y-8 sm:gap-y-12 lg:gap-y-0 lg:gap-x-8"
               >
                 <div>
                   <litepie-datepicker
@@ -741,7 +741,7 @@
                   />
                 </div>
                 <div>
-                  <div class="rounded-xl overflow-hidden">
+                  <div class="overflow-hidden rounded-xl">
                     <div class="bg-light-blue-500">
                       <v-prims language="html" :code="playground.shortcuts">
                       </v-prims>
@@ -751,10 +751,10 @@
               </div>
             </div>
             <div id="disable-date" class="pt-6 sm:pt-8">
-              <h3 class="group flex items-center font-semibold">
+              <h3 class="flex items-center font-semibold group">
                 <a
                   href="#disable-date"
-                  class="absolute after:hash opacity-0 group-hover:opacity-100 -ml-4 text-light-blue-400"
+                  class="absolute -ml-4 opacity-0 after:hash group-hover:opacity-100 text-light-blue-400"
                   aria-label="Anchor"
                 ></a>
                 <span class="text-lg text-gray-900">
@@ -762,7 +762,7 @@
                 </span>
               </h3>
               <div
-                class="mt-6 grid grid-cols-1 lg:grid-cols-2 gap-y-8 sm:gap-y-12 lg:gap-y-0 lg:gap-x-8"
+                class="grid grid-cols-1 mt-6 lg:grid-cols-2 gap-y-8 sm:gap-y-12 lg:gap-y-0 lg:gap-x-8"
               >
                 <div>
                   <litepie-datepicker
@@ -775,7 +775,7 @@
                   />
                 </div>
                 <div>
-                  <div class="rounded-xl overflow-hidden">
+                  <div class="overflow-hidden rounded-xl">
                     <div class="bg-light-blue-500">
                       <v-prims
                         language="html"
@@ -787,10 +787,10 @@
               </div>
             </div>
             <div id="disable-in-range" class="pt-6 sm:pt-8">
-              <h3 class="group flex items-center font-semibold">
+              <h3 class="flex items-center font-semibold group">
                 <a
                   href="#disable-in-range"
-                  class="absolute after:hash opacity-0 group-hover:opacity-100 -ml-4 text-light-blue-400"
+                  class="absolute -ml-4 opacity-0 after:hash group-hover:opacity-100 text-light-blue-400"
                   aria-label="Anchor"
                 ></a>
                 <span class="text-lg text-gray-900">
@@ -798,7 +798,7 @@
                 </span>
               </h3>
               <div
-                class="mt-6 grid grid-cols-1 lg:grid-cols-2 gap-y-8 sm:gap-y-12 lg:gap-y-0 lg:gap-x-8"
+                class="grid grid-cols-1 mt-6 lg:grid-cols-2 gap-y-8 sm:gap-y-12 lg:gap-y-0 lg:gap-x-8"
               >
                 <div>
                   <litepie-datepicker
@@ -812,7 +812,7 @@
                   />
                 </div>
                 <div>
-                  <div class="rounded-xl overflow-hidden">
+                  <div class="overflow-hidden rounded-xl">
                     <div class="bg-light-blue-500">
                       <v-prims
                         language="html"
@@ -825,10 +825,10 @@
               </div>
             </div>
             <div id="trigger" class="pt-6 sm:pt-8">
-              <h3 class="group flex items-center font-semibold">
+              <h3 class="flex items-center font-semibold group">
                 <a
                   href="#trigger"
-                  class="absolute after:hash opacity-0 group-hover:opacity-100 -ml-4 text-light-blue-400"
+                  class="absolute -ml-4 opacity-0 after:hash group-hover:opacity-100 text-light-blue-400"
                   aria-label="Anchor"
                 ></a>
                 <span class="text-lg text-gray-900">
@@ -836,7 +836,7 @@
                 </span>
               </h3>
               <div
-                class="mt-6 grid grid-cols-1 lg:grid-cols-2 gap-y-8 sm:gap-y-12 lg:gap-y-0 lg:gap-x-8"
+                class="grid grid-cols-1 mt-6 lg:grid-cols-2 gap-y-8 sm:gap-y-12 lg:gap-y-0 lg:gap-x-8"
               >
                 <div class="flex">
                   <div class="flex-1">
@@ -850,14 +850,14 @@
                     <button
                       type="button"
                       id="open-datepicker"
-                      class="px-4 py-2 rounded-lg sm:rounded-xl bg-light-blue-500 text-white font-medium focus:outline-none"
+                      class="px-4 py-2 font-medium text-white rounded-lg sm:rounded-xl bg-light-blue-500 focus:outline-none"
                     >
                       Open
                     </button>
                   </div>
                 </div>
                 <div>
-                  <div class="rounded-xl overflow-hidden">
+                  <div class="overflow-hidden rounded-xl">
                     <div class="bg-light-blue-500">
                       <v-prims language="html" :code="playground.trigger">
                       </v-prims>
@@ -867,10 +867,10 @@
               </div>
             </div>
             <div id="use-slot" class="pt-6 sm:pt-8">
-              <h3 class="group flex items-center font-semibold">
+              <h3 class="flex items-center font-semibold group">
                 <a
                   href="#use-slot"
-                  class="absolute after:hash opacity-0 group-hover:opacity-100 -ml-4 text-light-blue-400"
+                  class="absolute -ml-4 opacity-0 after:hash group-hover:opacity-100 text-light-blue-400"
                   aria-label="Anchor"
                 ></a>
                 <span class="text-lg text-gray-900">
@@ -878,7 +878,7 @@
                 </span>
               </h3>
               <div
-                class="mt-6 grid grid-cols-1 lg:grid-cols-2 gap-y-8 sm:gap-y-12 lg:gap-y-0 lg:gap-x-8"
+                class="grid grid-cols-1 mt-6 lg:grid-cols-2 gap-y-8 sm:gap-y-12 lg:gap-y-0 lg:gap-x-8"
               >
                 <div>
                   <litepie-datepicker
@@ -890,7 +890,7 @@
                       <div class="flex-1">
                         <button
                           type="button"
-                          class="block w-full bg-gray-50 text-gray-400 hover:text-gray-900 leading-6 py-3 sm:px-6 border border-gray-200 rounded-xl flex items-center justify-center space-x-2 sm:space-x-4 focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-gray-300 focus:outline-none transition ease-out duration-300"
+                          class="flex items-center justify-center block w-full py-3 space-x-2 leading-6 text-gray-400 transition duration-300 ease-out border border-gray-200 bg-gray-50 hover:text-gray-900 sm:px-6 rounded-xl sm:space-x-4 focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-gray-300 focus:outline-none"
                         >
                           <span class="text-gray-900">
                             {{ value || placeholder }}
@@ -900,7 +900,7 @@
                       <div class="flex-shrink-0">
                         <button
                           type="button"
-                          class="ml-4 block px-3 flex-none bg-indigo-50 text-indigo-400 hover:text-indigo-900 leading-6 py-3 sm:px-6 border border-indigo-200 rounded-xl flex items-center justify-center space-x-2 sm:space-x-4 focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-indigo-300 focus:outline-none transition ease-out duration-300"
+                          class="flex items-center justify-center flex-none block px-3 py-3 ml-4 space-x-2 leading-6 text-indigo-400 transition duration-300 ease-out border border-indigo-200 bg-indigo-50 hover:text-indigo-900 sm:px-6 rounded-xl sm:space-x-4 focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-indigo-300 focus:outline-none"
                           @click="clear"
                         >
                           <svg
@@ -923,7 +923,7 @@
                   </litepie-datepicker>
                 </div>
                 <div>
-                  <div class="rounded-xl overflow-hidden">
+                  <div class="overflow-hidden rounded-xl">
                     <div class="bg-light-blue-500">
                       <v-prims language="html" :code="playground.useSlot">
                       </v-prims>
@@ -939,7 +939,7 @@
           class="relative px-4 sm:px-6 md:px-8 mb-14 sm:mb-20 xl:mb-8"
         >
           <div class="mt-16">
-            <h2 class="text-3xl tracking-tight font-extrabold text-gray-900">
+            <h2 class="text-3xl font-extrabold tracking-tight text-gray-900">
               Advance Feature
             </h2>
             <div class="mt-2">
@@ -951,10 +951,10 @@
           </div>
           <div class="space-y-6 sm:space-y-10">
             <div id="use-array" class="pt-6 sm:pt-8">
-              <h3 class="group flex items-center font-semibold">
+              <h3 class="flex items-center font-semibold group">
                 <a
                   href="#use-array"
-                  class="absolute after:hash opacity-0 group-hover:opacity-100 -ml-4 text-light-blue-400"
+                  class="absolute -ml-4 opacity-0 after:hash group-hover:opacity-100 text-light-blue-400"
                   aria-label="Anchor"
                 ></a>
                 <span class="text-lg text-gray-900">
@@ -962,7 +962,7 @@
                 </span>
               </h3>
               <div
-                class="mt-6 grid grid-cols-1 lg:grid-cols-2 gap-y-8 sm:gap-y-12 lg:gap-y-0 lg:gap-x-8"
+                class="grid grid-cols-1 mt-6 lg:grid-cols-2 gap-y-8 sm:gap-y-12 lg:gap-y-0 lg:gap-x-8"
               >
                 <div>
                   <litepie-datepicker
@@ -971,7 +971,7 @@
                   />
                 </div>
                 <div>
-                  <div class="rounded-xl overflow-hidden">
+                  <div class="overflow-hidden rounded-xl">
                     <div class="bg-light-blue-500">
                       <v-prims language="html" :code="advance.useArray">
                       </v-prims>
@@ -981,10 +981,10 @@
               </div>
             </div>
             <div id="use-object" class="pt-6 sm:pt-8">
-              <h3 class="group flex items-center font-semibold">
+              <h3 class="flex items-center font-semibold group">
                 <a
                   href="#use-object"
-                  class="absolute after:hash opacity-0 group-hover:opacity-100 -ml-4 text-light-blue-400"
+                  class="absolute -ml-4 opacity-0 after:hash group-hover:opacity-100 text-light-blue-400"
                   aria-label="Anchor"
                 ></a>
                 <span class="text-lg text-gray-900">
@@ -992,7 +992,7 @@
                 </span>
               </h3>
               <div
-                class="mt-6 grid grid-cols-1 lg:grid-cols-2 gap-y-8 sm:gap-y-12 lg:gap-y-0 lg:gap-x-8"
+                class="grid grid-cols-1 mt-6 lg:grid-cols-2 gap-y-8 sm:gap-y-12 lg:gap-y-0 lg:gap-x-8"
               >
                 <div>
                   <litepie-datepicker
@@ -1001,7 +1001,7 @@
                   />
                 </div>
                 <div>
-                  <div class="rounded-xl overflow-hidden">
+                  <div class="overflow-hidden rounded-xl">
                     <div class="bg-light-blue-500">
                       <v-prims language="html" :code="advance.useObject">
                       </v-prims>
@@ -1011,10 +1011,10 @@
               </div>
             </div>
             <div id="use-string" class="pt-6 sm:pt-8">
-              <h3 class="group flex items-center font-semibold">
+              <h3 class="flex items-center font-semibold group">
                 <a
                   href="#use-string"
-                  class="absolute after:hash opacity-0 group-hover:opacity-100 -ml-4 text-light-blue-400"
+                  class="absolute -ml-4 opacity-0 after:hash group-hover:opacity-100 text-light-blue-400"
                   aria-label="Anchor"
                 ></a>
                 <span class="text-lg text-gray-900">
@@ -1022,7 +1022,7 @@
                 </span>
               </h3>
               <div
-                class="mt-6 grid grid-cols-1 lg:grid-cols-2 gap-y-8 sm:gap-y-12 lg:gap-y-0 lg:gap-x-8"
+                class="grid grid-cols-1 mt-6 lg:grid-cols-2 gap-y-8 sm:gap-y-12 lg:gap-y-0 lg:gap-x-8"
               >
                 <div>
                   <litepie-datepicker
@@ -1031,7 +1031,7 @@
                   />
                 </div>
                 <div>
-                  <div class="rounded-xl overflow-hidden">
+                  <div class="overflow-hidden rounded-xl">
                     <div class="bg-light-blue-500">
                       <v-prims language="html" :code="advance.useString">
                       </v-prims>
@@ -1043,21 +1043,21 @@
           </div>
         </section>
         <section
-          class="hidden relative px-4 sm:px-6 md:px-8 mb-14 sm:mb-20 xl:mb-8"
+          class="relative hidden px-4 sm:px-6 md:px-8 mb-14 sm:mb-20 xl:mb-8"
         >
           <h2
-            class="text-3xl tracking-tight font-extrabold text-gray-900 mt-16 mb-8"
+            class="mt-16 mb-8 text-3xl font-extrabold tracking-tight text-gray-900"
           >
             Get involved
           </h2>
-          <ul class="grid sm:grid-cols-2 gap-6 xl:gap-8">
+          <ul class="grid gap-6 sm:grid-cols-2 xl:gap-8">
             <li>
               <a
                 href="https://github.com/tailwindlabs/tailwindcss/discussions"
                 class="flex items-start space-x-4"
                 ><svg
                   fill="currentColor"
-                  class="flex-none text-gray-900 w-12 h-12"
+                  class="flex-none w-12 h-12 text-gray-900"
                 >
                   <rect width="48" height="48" rx="12"></rect>
                   <path
@@ -1076,7 +1076,7 @@
               <a href="/discord" class="flex items-start space-x-4"
                 ><svg
                   fill="currentColor"
-                  class="flex-none text-indigo-400 w-12 h-12"
+                  class="flex-none w-12 h-12 text-indigo-400"
                 >
                   <rect width="48" height="48" rx="12"></rect>
                   <path
@@ -1104,7 +1104,7 @@
                 class="flex items-start space-x-4"
                 ><svg
                   fill="currentColor"
-                  class="flex-none text-light-blue-400 w-12 h-12"
+                  class="flex-none w-12 h-12 text-light-blue-400"
                 >
                   <rect width="48" height="48" rx="12"></rect>
                   <path
@@ -1127,7 +1127,7 @@
                 class="flex items-start space-x-4"
                 ><svg
                   fill="currentColor"
-                  class="flex-none text-red-500 w-12 h-12"
+                  class="flex-none w-12 h-12 text-red-500"
                 >
                   <rect width="48" height="48" rx="12"></rect>
                   <path
@@ -1146,13 +1146,13 @@
         </section>
       </div>
       <footer
-        class="bg-gray-50 pt-16 pb-12 sm:pt-20 md:pt-24 xl:pt-32 sm:pb-20"
+        class="pt-16 pb-12 bg-gray-50 sm:pt-20 md:pt-24 xl:pt-32 sm:pb-20"
       >
         <div
-          class="max-w-screen-lg xl:max-w-screen-xl mx-auto divide-y divide-gray-200 px-4 sm:px-6 md:px-8"
+          class="max-w-screen-lg px-4 mx-auto divide-y divide-gray-200 xl:max-w-screen-xl sm:px-6 md:px-8"
         >
           <div class="pt-10 sm:pt-12">
-            <span class="text-xs font-medium text-gray-700 tracking-tight"
+            <span class="text-xs font-medium tracking-tight text-gray-700"
               >Powered by</span
             >
             <svg viewBox="0 0 247 31" width="208" height="26">
@@ -1178,9 +1178,9 @@
 
 <script>
 import dayjs from "dayjs";
-import { reactive, ref, watchEffect } from "vue";
-import content from "./content";
 import VPrims from "./prims";
+import { reactive, ref, watchEffect } from '@vue/composition-api';
+import content from './content';
 
 export default {
   name: "App",

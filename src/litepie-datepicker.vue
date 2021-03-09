@@ -20,11 +20,11 @@
           :placeholder="givenPlaceholder"
         />
         <span
-          class="absolute inset-y-0 right-0 inline-flex items-center rounded-md overflow-hidden"
+          class="absolute inset-y-0 right-0 inline-flex items-center overflow-hidden rounded-md"
         >
           <button
             type="button"
-            class="px-2 py-1 mr-1 focus:outline-none text-litepie-secondary-400 dark:text-opacity-70 rounded-md"
+            class="px-2 py-1 mr-1 rounded-md focus:outline-none text-litepie-secondary-400 dark:text-opacity-70"
             @click="value ? clearPicker() : $refs.LitepieInputRef.focus()"
           >
             <svg
@@ -54,19 +54,19 @@
       </label>
     </slot>
     <transition
-      enter-from-class="opacity-0 translate-y-3"
-      enter-to-class="opacity-100 translate-y-0"
-      enter-active-class="transform transition ease-out duration-200"
-      leave-active-class="transform transition ease-in duration-150"
-      leave-from-class="opacity-100 translate-y-0"
-      leave-to-class="opacity-0 translate-y-3"
+      enter-from-class="translate-y-3 opacity-0"
+      enter-to-class="translate-y-0 opacity-100"
+      enter-active-class="transition duration-200 ease-out transform"
+      leave-active-class="transition duration-150 ease-in transform"
+      leave-from-class="translate-y-0 opacity-100"
+      leave-to-class="translate-y-3 opacity-0"
     >
       <div
         v-show="isShow"
         class="absolute z-50 inset-x-auto top-full sm:mt-2.5"
       >
         <div
-          class="fixed inset-0 z-50 overflow-y-auto sm:overflow-visible sm:static sm:z-auto bg-white dark:bg-litepie-secondary-800 sm:rounded-lg shadow-sm"
+          class="fixed inset-0 z-50 overflow-y-auto bg-white shadow-sm sm:overflow-visible sm:static sm:z-auto dark:bg-litepie-secondary-800 sm:rounded-lg"
         >
           <div
             class="litepie-datepicker static sm:relative w-full bg-white sm:rounded-lg sm:shadow-sm border-0 sm:border border-black border-opacity-10 px-3 py-3 sm:px-1 sm:py-1.5 dark:bg-litepie-secondary-800 dark:border-litepie-secondary-700 dark:border-opacity-100"
@@ -80,13 +80,13 @@
                 :as-single="asSingle"
               />
               <!--          Calendar-->
-              <div class="relative flex flex-wrap sm:flex-nowrap p-1">
+              <div class="relative flex flex-wrap p-1 sm:flex-nowrap">
                 <div
                   v-if="asRange() && !asSingle"
-                  class="absolute inset-0 flex justify-center items-center"
+                  class="absolute inset-0 flex items-center justify-center"
                 >
                   <div
-                    class="w-8 sm:w-1 h-1 sm:h-8 bg-litepie-primary-500 rounded-xl shadow-inner"
+                    class="w-8 h-1 shadow-inner sm:w-1 sm:h-8 bg-litepie-primary-500 rounded-xl"
                   ></div>
                 </div>
                 <div
@@ -131,7 +131,7 @@
                 <!--          If use range-->
                 <div
                   v-if="asRange() && !asSingle"
-                  class="relative w-full sm:w-60 xl:w-72 2xl:w-80 overflow-hidden mt-3 sm:mt-0 sm:ml-2"
+                  class="relative w-full mt-3 overflow-hidden sm:w-60 xl:w-72 2xl:w-80 sm:mt-0 sm:ml-2"
                 >
                   <!--            Header-->
                   <litepie-header
@@ -178,7 +178,7 @@
                 <div class="mt-1.5 sm:flex sm:flex-row-reverse">
                   <button
                     type="button"
-                    class="away-apply-picker w-full transition ease-out duration-300 inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-litepie-primary-600 text-base font-medium text-white hover:bg-litepie-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-litepie-primary-500 sm:ml-3 sm:w-auto sm:text-sm dark:ring-offset-litepie-secondary-800 disabled:cursor-not-allowed"
+                    class="inline-flex justify-center w-full px-4 py-2 text-base font-medium text-white transition duration-300 ease-out border border-transparent rounded-md shadow-sm away-apply-picker bg-litepie-primary-600 hover:bg-litepie-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-litepie-primary-500 sm:ml-3 sm:w-auto sm:text-sm dark:ring-offset-litepie-secondary-800 disabled:cursor-not-allowed"
                     :disabled="
                       asSingle ? applyValue.length < 1 : applyValue.length < 2
                     "
@@ -188,7 +188,7 @@
                   </button>
                   <button
                     type="button"
-                    class="mt-3 away-cancel-picker w-full transition ease-out duration-300 inline-flex justify-center rounded-md border border-litepie-secondary-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-litepie-secondary-700 hover:bg-litepie-secondary-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-litepie-primary-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm dark:ring-offset-litepie-secondary-800"
+                    class="inline-flex justify-center w-full px-4 py-2 mt-3 text-base font-medium transition duration-300 ease-out bg-white border rounded-md shadow-sm away-cancel-picker border-litepie-secondary-300 text-litepie-secondary-700 hover:bg-litepie-secondary-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-litepie-primary-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm dark:ring-offset-litepie-secondary-800"
                   >
                     Cancel
                   </button>
@@ -202,7 +202,7 @@
                 <div class="mt-1.5 sm:flex sm:flex-row-reverse">
                   <button
                     type="button"
-                    class="away-cancel-picker w-full transition ease-out duration-300 inline-flex justify-center rounded-md border border-litepie-secondary-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-litepie-secondary-700 hover:bg-litepie-secondary-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-litepie-primary-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm dark:ring-offset-litepie-secondary-800"
+                    class="inline-flex justify-center w-full px-4 py-2 text-base font-medium transition duration-300 ease-out bg-white border rounded-md shadow-sm away-cancel-picker border-litepie-secondary-300 text-litepie-secondary-700 hover:bg-litepie-secondary-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-litepie-primary-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm dark:ring-offset-litepie-secondary-800"
                   >
                     Cancel
                   </button>
@@ -234,7 +234,7 @@ import {
   isProxy,
   watchEffect,
   watch
-} from 'vue';
+} from '@vue/composition-api';
 import {
   useCurrentDate,
   useDisableDate,
