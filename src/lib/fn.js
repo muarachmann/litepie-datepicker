@@ -1,3 +1,5 @@
+import { isReactive, isReadonly } from '@vue/composition-api';
+
 export const usePreviousDate = date => {
   const display = [];
   for (let i = 0; i <= date.date(0).day(); i++) {
@@ -57,37 +59,43 @@ export const useToValueFromArray = (
   )}`;
 };
 
-export const useDirective = binding => {
-  const { instance, arg, value } = binding;
+export const useDirective = (binding, vnode) => {
+  const { arg, value } = binding;
+  const { context } = vnode;
   document.body.addEventListener('click', $event => {
     if ($event.target.classList.contains('litepie-datepicker-overlay')) {
-      return (instance.isShow = false);
+      console.log('closed by overlay check!');
+      return (context.isShow = false);
     } else {
-      if (instance.LitepieDatepickerRef) {
-        const { autoApply, previous, next } = instance;
+      if (context.LitepieDatepickerRef) {
+        const { autoApply, previous, next } = context;
         const target = $event.target.classList.contains(
           'litepie-datepicker-date'
         );
         if (target && autoApply && !previous && !next) {
-          return (instance.isShow = false);
+          return (context.isShow = false);
         }
         if (
           !autoApply &&
           $event.target.classList.contains(`${arg}-apply-picker`) &&
-          instance.value !== ''
+          context.value !== ''
         ) {
-          return (instance.isShow = false);
+          return (context.isShow = false);
         }
         if ($event.target.classList.contains(`${arg}-cancel-picker`)) {
-          return (instance.isShow = false);
+          return (context.isShow = false);
         }
 
-        return (instance.isShow =
-          instance.LitepieDatepickerRef.contains($event.target) ||
+        return (context.isShow =
+          context.LitepieDatepickerRef.contains($event.target) ||
           document.getElementById(value) === $event.target ||
           value === $event.target);
       }
-      return (instance.isShow = true);
+      return (context.isShow = true);
     }
   });
 };
+
+export function isProxy(value) {
+  return isReactive(value) || isReadonly(value);
+}
