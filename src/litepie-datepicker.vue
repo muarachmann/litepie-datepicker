@@ -9,14 +9,14 @@
     ]"
     v-litepie:away="trigger"
   >
-    <slot :value="value" :placeholder="givenPlaceholder" :clear="clearPicker">
+    <slot :value="pickerValue" :placeholder="givenPlaceholder">
       <label class="relative block">
         <input
           ref="LitepieInputRef"
           type="text"
           class="relative block w-full pl-3 pr-12 py-2.5 rounded-lg overflow-hidden text-sm text-litepie-secondary-700 placeholder-litepie-secondary-400 transition-colors bg-white border border-litepie-secondary-300 focus:border-litepie-primary-300 focus:ring focus:ring-litepie-primary-500 focus:ring-opacity-10 focus:outline-none dark:bg-litepie-secondary-800 dark:border-litepie-secondary-700 dark:text-litepie-secondary-100 dark:placeholder-litepie-secondary-500 dark:focus:border-litepie-primary-500 dark:focus:ring-opacity-20"
           v-bind="$attrs"
-          v-model="value"
+          v-model="pickerValue"
           :placeholder="givenPlaceholder"
         />
         <span
@@ -25,7 +25,7 @@
           <button
             type="button"
             class="px-2 py-1 mr-1 rounded-md focus:outline-none text-litepie-secondary-400 dark:text-opacity-70"
-            @click="value ? clearPicker() : $refs.LitepieInputRef.focus()"
+            @click="pickerValue ? clearPicker() : $refs.LitepieInputRef.focus()"
           >
             <svg
               class="w-5 h-5"
@@ -35,7 +35,7 @@
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                v-if="value"
+                v-if="pickerValue"
                 stroke-linecap="round"
                 stroke-linejoin="round"
                 stroke-width="1.5"
@@ -231,7 +231,6 @@ import {
   provide,
   nextTick,
   onMounted,
-  isProxy,
   watchEffect,
   watch
 } from '@vue/composition-api';
@@ -243,14 +242,9 @@ import {
   usePreviousDate,
   useToValueFromArray,
   useToValueFromString,
-  useDirective
+  useDirective,
+  isProxy
 } from '@/lib/fn';
-
-dayjs.extend(localeData);
-dayjs.extend(localizedFormat);
-dayjs.extend(isToday);
-dayjs.extend(isBetween);
-dayjs.extend(duration);
 
 import LitepieHeader from '@/components/Header.vue';
 import LitepieMonth from '@/components/Month.vue';
@@ -258,6 +252,12 @@ import LitepieWeek from '@/components/Week.vue';
 import LitepieYear from '@/components/Year.vue';
 import LitepieCalendar from '@/components/Calendar.vue';
 import LitepieShortcut from '@/components/Shortcut.vue';
+
+dayjs.extend(localeData);
+dayjs.extend(localizedFormat);
+dayjs.extend(isToday);
+dayjs.extend(isBetween);
+dayjs.extend(duration);
 
 export default /*#__PURE__*/ defineComponent({
   name: 'LitepieDatepicker', // vue component name
@@ -271,11 +271,11 @@ export default /*#__PURE__*/ defineComponent({
   },
   directives: {
     litepie: {
-      mounted: (el, binding) => {
-        useDirective(binding);
+      inserted: (el, binding, vnode) => {
+        useDirective(binding, vnode);
       },
-      updated: (el, binding) => {
-        useDirective(binding);
+      componentUpdated: (el, binding, vnode) => {
+        useDirective(binding, vnode);
       }
     }
   },
@@ -323,24 +323,24 @@ export default /*#__PURE__*/ defineComponent({
         month: 'MMM'
       })
     },
-    modelValue: {
+    value: {
       type: [Array, Object, String],
       default: []
     },
     startFrom: {
       type: [Object, String],
-      default: () => new Date()
+      default: () => `${new Date()}`
     }
   },
   inheritAttrs: false,
-  emits: ['update:modelValue'],
+  emits: ['input'],
   setup(props, { emit }) {
     const LitepieDatepickerRef = ref(null);
     const LitepieInputRef = ref(null);
     const isShow = ref(false);
     const givenPlaceholder = ref('');
     const selection = ref(null);
-    const value = ref('');
+    const pickerValue = ref('');
     const hoverValue = ref([]);
     const applyValue = ref([]);
     const previous = ref(null);
@@ -597,9 +597,9 @@ export default /*#__PURE__*/ defineComponent({
       };
     });
 
-    const useArray = () => Array.isArray(props.modelValue);
+    const useArray = () => Array.isArray(props.value);
 
-    const useObject = () => typeof props.modelValue === 'object';
+    const useObject = () => typeof props.value === 'object';
 
     const asRange = () => {
       if (!props.useRange && !props.asSingle) {
@@ -613,20 +613,20 @@ export default /*#__PURE__*/ defineComponent({
 
     const inRangeDate = date => {
       if (props.disableInRange) return false;
-      if (value.value === '') return false;
+      if (pickerValue.value === '') return false;
       let s, e;
       if (useArray()) {
-        const [start, end] = props.modelValue;
+        const [start, end] = props.value;
         s = start;
         e = end;
       } else if (useObject()) {
-        if (props.modelValue) {
-          const [start, end] = Object.values(props.modelValue);
+        if (props.value) {
+          const [start, end] = Object.values(props.value);
           s = start;
           e = end;
         }
       } else {
-        const [start, end] = props.modelValue.split(props.separator);
+        const [start, end] = props.value.split(props.separator);
         s = start;
         e = end;
       }
@@ -655,17 +655,17 @@ export default /*#__PURE__*/ defineComponent({
     };
 
     const clearPicker = () => {
-      value.value = '';
+      pickerValue.value = '';
       if (useArray()) {
-        emit('update:modelValue', []);
+        emit('input', []);
       } else if (useObject()) {
         const obj = {};
-        const [start, end] = Object.keys(props.modelValue);
+        const [start, end] = Object.keys(props.value);
         obj[start] = '';
         obj[end] = '';
-        emit('update:modelValue', obj);
+        emit('input', obj);
       } else {
-        emit('update:modelValue', '');
+        emit('input', '');
       }
       applyValue.value = [];
       LitepieInputRef.value && LitepieInputRef.value.focus();
@@ -677,7 +677,7 @@ export default /*#__PURE__*/ defineComponent({
           next.value = date;
           if (props.autoApply) {
             if (date.isBefore(previous.value)) {
-              value.value = useToValueFromArray(
+              pickerValue.value = useToValueFromArray(
                 {
                   previous: date,
                   next: previous.value
@@ -685,7 +685,7 @@ export default /*#__PURE__*/ defineComponent({
                 props
               );
             } else {
-              value.value = useToValueFromArray(
+              pickerValue.value = useToValueFromArray(
                 {
                   previous: previous.value,
                   next: date
@@ -693,10 +693,10 @@ export default /*#__PURE__*/ defineComponent({
                 props
               );
             }
-            const [s, e] = value.value.split(props.separator);
+            const [s, e] = pickerValue.value.split(props.separator);
 
             if (useArray()) {
-              emit('update:modelValue', [
+              emit('input', [
                 dayjs(s, props.formatter.date, true).format(
                   props.formatter.date
                 ),
@@ -706,13 +706,13 @@ export default /*#__PURE__*/ defineComponent({
               ]);
             } else if (useObject()) {
               const obj = {};
-              const [start, end] = Object.keys(props.modelValue);
+              const [start, end] = Object.keys(props.value);
               obj[start] = s;
               obj[end] = e;
-              emit('update:modelValue', obj);
+              emit('input', obj);
             } else {
               emit(
-                'update:modelValue',
+                'input',
                 useToValueFromArray(
                   {
                     previous: dayjs(s, props.formatter.date, true),
@@ -770,16 +770,16 @@ export default /*#__PURE__*/ defineComponent({
         }
       } else {
         if (props.autoApply) {
-          value.value = useToValueFromString(date, props);
+          pickerValue.value = useToValueFromString(date, props);
           if (useArray()) {
-            emit('update:modelValue', [value.value]);
+            emit('input', [pickerValue.value]);
           } else if (useObject()) {
             const obj = {};
-            const [start] = Object.keys(props.modelValue);
-            obj[start] = value.value;
-            emit('update:modelValue', obj);
+            const [start] = Object.keys(props.value);
+            obj[start] = pickerValue.value;
+            emit('input', obj);
           } else {
-            emit('update:modelValue', value.value);
+            emit('input', pickerValue.value);
           }
           isShow.value = false;
           applyValue.value = [];
@@ -790,13 +790,6 @@ export default /*#__PURE__*/ defineComponent({
         }
       }
     };
-
-    // TODO: Working with date time
-    const setHours = (asNext = false) => {};
-
-    const setMinutes = (asNext = false) => {};
-
-    const setSeconds = (asNext = false) => {};
 
     const applyDate = () => {
       if (applyValue.value.length < 1) return false;
@@ -828,19 +821,19 @@ export default /*#__PURE__*/ defineComponent({
         const [s, e] = date.split(props.separator);
 
         if (useArray()) {
-          emit('update:modelValue', [
+          emit('input', [
             dayjs(s, props.formatter.date, true).format(props.formatter.date),
             dayjs(e, props.formatter.date, true).format(props.formatter.date)
           ]);
         } else if (useObject()) {
           const obj = {};
-          const [start, end] = Object.keys(props.modelValue);
+          const [start, end] = Object.keys(props.value);
           obj[start] = s;
           obj[end] = e;
-          emit('update:modelValue', obj);
+          emit('input', obj);
         } else {
           emit(
-            'update:modelValue',
+            'input',
             useToValueFromArray(
               {
                 previous: dayjs(s, props.formatter.date, true),
@@ -850,18 +843,18 @@ export default /*#__PURE__*/ defineComponent({
             )
           );
         }
-        value.value = date;
+        pickerValue.value = date;
       } else {
-        value.value = date.format(props.formatter.date);
+        pickerValue.value = date.format(props.formatter.date);
         if (useArray()) {
-          emit('update:modelValue', [value.value]);
+          emit('input', [pickerValue.value]);
         } else if (useObject()) {
           const obj = {};
-          const [start] = Object.keys(props.modelValue);
-          obj[start] = value.value;
-          emit('update:modelValue', obj);
+          const [start] = Object.keys(props.value);
+          obj[start] = pickerValue.value;
+          emit('input', obj);
         } else {
-          emit('update:modelValue', value.value);
+          emit('input', pickerValue.value);
         }
       }
       isShow.value = false;
@@ -888,7 +881,7 @@ export default /*#__PURE__*/ defineComponent({
       } else {
         if (useArray()) {
           if (props.autoApply) {
-            const [start, end] = props.modelValue;
+            const [start, end] = props.value;
             s = start && dayjs(start, props.formatter.date, true);
             e = end && dayjs(end, props.formatter.date, true);
           } else {
@@ -898,8 +891,8 @@ export default /*#__PURE__*/ defineComponent({
           }
         } else if (useObject()) {
           if (props.autoApply) {
-            if (props.modelValue) {
-              const [start, end] = Object.values(props.modelValue);
+            if (props.value) {
+              const [start, end] = Object.values(props.value);
               s = start && dayjs(start, props.formatter.date, true);
               e = end && dayjs(end, props.formatter.date, true);
             }
@@ -910,8 +903,8 @@ export default /*#__PURE__*/ defineComponent({
           }
         } else {
           if (props.autoApply) {
-            const [start, end] = props.modelValue
-              ? props.modelValue.split(props.separator)
+            const [start, end] = props.value
+              ? props.value.split(props.separator)
               : [false, false];
             s = start && dayjs(start, props.formatter.date, true);
             e = end && dayjs(end, props.formatter.date, true);
@@ -942,7 +935,7 @@ export default /*#__PURE__*/ defineComponent({
             e = end && dayjs(end, props.formatter.date, true);
           } else {
             if (props.autoApply) {
-              const [start, end] = props.modelValue;
+              const [start, end] = props.value;
               s = start && dayjs(start, props.formatter.date, true);
               e = end && dayjs(end, props.formatter.date, true);
             } else {
@@ -958,8 +951,8 @@ export default /*#__PURE__*/ defineComponent({
             e = end && dayjs(end, props.formatter.date, true);
           } else {
             if (props.autoApply) {
-              const [start, end] = props.modelValue
-                ? Object.values(props.modelValue)
+              const [start, end] = props.value
+                ? Object.values(props.value)
                 : [false, false];
               s = start && dayjs(start, props.formatter.date, true);
               e = end && dayjs(end, props.formatter.date, true);
@@ -976,8 +969,8 @@ export default /*#__PURE__*/ defineComponent({
             e = end && dayjs(end, props.formatter.date, true);
           } else {
             if (props.autoApply) {
-              const [start, end] = props.modelValue
-                ? props.modelValue.split(props.separator)
+              const [start, end] = props.value
+                ? props.value.split(props.separator)
                 : [false, false];
               s = start && dayjs(start, props.formatter.date, true);
               e = end && dayjs(end, props.formatter.date, true);
@@ -991,8 +984,8 @@ export default /*#__PURE__*/ defineComponent({
       } else {
         if (useArray()) {
           if (props.autoApply) {
-            if (props.modelValue.length > 0) {
-              const [start] = props.modelValue;
+            if (props.value.length > 0) {
+              const [start] = props.value;
               s = dayjs(start, props.formatter.date, true);
             }
           } else {
@@ -1001,8 +994,8 @@ export default /*#__PURE__*/ defineComponent({
           }
         } else if (useObject()) {
           if (props.autoApply) {
-            if (props.modelValue) {
-              const [start] = Object.values(props.modelValue);
+            if (props.value) {
+              const [start] = Object.values(props.value);
               s = dayjs(start, props.formatter.date, true);
             }
           } else {
@@ -1011,8 +1004,8 @@ export default /*#__PURE__*/ defineComponent({
           }
         } else {
           if (props.autoApply) {
-            if (props.modelValue) {
-              const [start] = props.modelValue.split(props.separator);
+            if (props.value) {
+              const [start] = props.value.split(props.separator);
               s = dayjs(start, props.formatter.date, true);
             }
           } else {
@@ -1070,7 +1063,7 @@ export default /*#__PURE__*/ defineComponent({
           e = end && dayjs(end, props.formatter.date, true);
         } else {
           if (props.autoApply) {
-            const [start, end] = props.modelValue;
+            const [start, end] = props.value;
             s = start && dayjs(start, props.formatter.date, true);
             e = end && dayjs(end, props.formatter.date, true);
           } else {
@@ -1086,8 +1079,8 @@ export default /*#__PURE__*/ defineComponent({
           e = end && dayjs(end, props.formatter.date, true);
         } else {
           if (props.autoApply) {
-            if (props.modelValue) {
-              const [start, end] = Object.values(props.modelValue);
+            if (props.value) {
+              const [start, end] = Object.values(props.value);
               s = start && dayjs(start, props.formatter.date, true);
               e = end && dayjs(end, props.formatter.date, true);
             }
@@ -1104,8 +1097,8 @@ export default /*#__PURE__*/ defineComponent({
           e = end && dayjs(end, props.formatter.date, true);
         } else {
           if (props.autoApply) {
-            const [start, end] = props.modelValue
-              ? props.modelValue.split(props.separator)
+            const [start, end] = props.value
+              ? props.value.split(props.separator)
               : [false, false];
             s = start && dayjs(start, props.formatter.date, true);
             e = end && dayjs(end, props.formatter.date, true);
@@ -1164,16 +1157,16 @@ export default /*#__PURE__*/ defineComponent({
       if (asRange()) {
         if (props.autoApply) {
           if (useArray()) {
-            emit('update:modelValue', [s, e]);
+            emit('input', [s, e]);
           } else if (useObject()) {
             const obj = {};
-            const [start, end] = Object.keys(props.modelValue);
+            const [start, end] = Object.keys(props.value);
             obj[start] = s;
             obj[end] = e;
-            emit('update:modelValue', obj);
+            emit('input', obj);
           } else {
             emit(
-              'update:modelValue',
+              'input',
               useToValueFromArray(
                 {
                   previous: s,
@@ -1183,7 +1176,7 @@ export default /*#__PURE__*/ defineComponent({
               )
             );
           }
-          value.value = `${s}${props.separator}${e}`;
+          pickerValue.value = `${s}${props.separator}${e}`;
         } else {
           applyValue.value = [
             dayjs(s, props.formatter.date, true),
@@ -1193,16 +1186,16 @@ export default /*#__PURE__*/ defineComponent({
       } else {
         if (props.autoApply) {
           if (useArray()) {
-            emit('update:modelValue', [s]);
+            emit('input', [s]);
           } else if (useObject()) {
             const obj = {};
-            const [start] = Object.keys(props.modelValue);
+            const [start] = Object.keys(props.value);
             obj[start] = s;
-            emit('update:modelValue', obj);
+            emit('input', obj);
           } else {
-            emit('update:modelValue', s);
+            emit('input', s);
           }
-          value.value = s;
+          pickerValue.value = s;
         } else {
           applyValue.value = [
             dayjs(s, props.formatter.date, true),
@@ -1275,9 +1268,9 @@ export default /*#__PURE__*/ defineComponent({
     watch(
       () => isShow.value,
       newValue => {
-        if (newValue && value.value !== '') {
+        if (newValue && pickerValue.value !== '') {
           if (asRange()) {
-            const [s, e] = value.value.split(props.separator);
+            const [s, e] = pickerValue.value.split(props.separator);
             const start = dayjs(s, props.formatter.date, true);
             const end = dayjs(e, props.formatter.date, true);
             datepicker.previous = start;
@@ -1288,7 +1281,7 @@ export default /*#__PURE__*/ defineComponent({
             }
           } else {
             datepicker.previous = dayjs(
-              value.value,
+              pickerValue.value,
               props.formatter.date,
               true
             );
@@ -1330,15 +1323,15 @@ export default /*#__PURE__*/ defineComponent({
         let s, e;
         if (asRange()) {
           if (useArray()) {
-            if (props.modelValue.length > 0) {
-              const [start, end] = props.modelValue;
+            if (props.value.length > 0) {
+              const [start, end] = props.value;
               s = dayjs(start, props.formatter.date, true);
               e = dayjs(end, props.formatter.date, true);
             }
           } else if (useObject()) {
-            if (!isProxy(props.modelValue)) {
+            if (!isProxy(props.value)) {
               try {
-                console.log(Object.keys(props.modelValue));
+                console.log(Object.keys(props.value));
               } catch (e) {
                 console.warn(
                   '[Litepie Datepicker]: It looks like you want to use Object as the argument %cv-model',
@@ -1350,27 +1343,27 @@ export default /*#__PURE__*/ defineComponent({
                   'font-style: italic; color: #42b883;',
                   ', but you can replace manually.'
                 );
-                emit('update:modelValue', {
+                emit('input', {
                   startDate: '',
                   endDate: ''
                 });
               }
             }
-            if (props.modelValue) {
-              const [start, end] = Object.values(props.modelValue);
+            if (props.value) {
+              const [start, end] = Object.values(props.value);
               s = start && dayjs(start, props.formatter.date, true);
               e = end && dayjs(end, props.formatter.date, true);
             }
           } else {
-            if (props.modelValue) {
-              const [start, end] = props.modelValue.split(props.separator);
+            if (props.value) {
+              const [start, end] = props.value.split(props.separator);
               s = dayjs(start, props.formatter.date, true);
               e = dayjs(end, props.formatter.date, true);
             }
           }
 
           if (s && e) {
-            value.value = useToValueFromArray(
+            pickerValue.value = useToValueFromArray(
               {
                 previous: s,
                 next: e
@@ -1406,25 +1399,25 @@ export default /*#__PURE__*/ defineComponent({
           }
         } else {
           if (useArray()) {
-            if (props.modelValue.length > 0) {
-              const [start] = props.modelValue;
+            if (props.value.length > 0) {
+              const [start] = props.value;
               s = dayjs(start, props.formatter.date, true);
             }
           } else if (useObject()) {
-            if (props.modelValue) {
-              const [start] = Object.values(props.modelValue);
+            if (props.value) {
+              const [start] = Object.values(props.value);
               s = dayjs(start, props.formatter.date, true);
             }
           } else {
-            if (props.modelValue.length) {
-              const [start] = props.modelValue.split(props.separator);
+            if (props.value.length) {
+              const [start] = props.value.split(props.separator);
               s = dayjs(start, props.formatter.date, true);
             }
           }
 
           if (s && s.isValid()) {
             nextTick(() => {
-              value.value = useToValueFromString(s, props);
+              pickerValue.value = useToValueFromString(s, props);
               datepicker.previous = s;
               datepicker.next = s.add(1, 'month');
               datepicker.year.previous = s.year();
@@ -1462,7 +1455,7 @@ export default /*#__PURE__*/ defineComponent({
       previous,
       next,
       panel,
-      value,
+      pickerValue,
       hoverValue,
       applyValue,
       datepicker,
@@ -1473,9 +1466,6 @@ export default /*#__PURE__*/ defineComponent({
       show,
       hide,
       setDate,
-      setHours,
-      setMinutes,
-      setSeconds,
       applyDate,
       clearPicker
     };
