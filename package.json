@@ -6,9 +6,6 @@
   "browser": "dist/litepie-datepicker.esm.js",
   "module": "dist/litepie-datepicker.esm.js",
   "unpkg": "dist/litepie-datepicker.min.js",
-  "files": [
-    "dist/*"
-  ],
   "keywords": [
     "litepie-datepicker",
     "vue-datepicker",
