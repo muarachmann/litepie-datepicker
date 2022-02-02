@@ -16,9 +16,9 @@ module.exports = {
         fuchsia: colors.fuchsia,
         lime: colors.lime,
         orange: colors.orange,
-        'light-blue': colors.lightBlue,
-        'litepie-primary': colors.lightBlue,
-        'litepie-secondary': colors.coolGray
+        'light-blue': colors.sky,
+        'litepie-primary': colors.emerald,
+        'litepie-secondary': colors.gray
       },
       fontFamily: {
         sans: ['Inter', ...fontFamily.sans]

@@ -17,7 +17,7 @@
             <div class="w-3 h-3 border-2 border-green-400 rounded-full"></div>
           </div>
           <div
-            class="flex flex-grow items-center rounded-md px-3 py-2 space-x-1.5 bg-white border border-black border-opacity-5 shadow-sm"
+            class="flex flex-grow items-center rounded-md px-3 py-2 space-x-1.5 bg-white border border-black/[.05] shadow-sm"
           >
             <svg
               class="w-5 h-5 text-green-400"
@@ -50,7 +50,7 @@
       </div>
     </div>
     <div
-      class="absolute inset-x-0 bottom-0 border-t border-black border-opacity-5"
+      class="absolute inset-x-0 bottom-0 border-t border-black/[.05]"
     ></div>
   </div>
   <div class="absolute inset-0">
@@ -58,7 +58,7 @@
       <header class="relative z-10 max-w-screen-lg mx-auto xl:max-w-screen-xl">
         <div class="relative px-4 sm:px-6 md:px-8 mb-14 sm:mb-20 xl:mb-8">
           <div
-            class="flex items-center justify-between px-4 py-4 mb-12 -mx-4 border-b border-gray-700 border-opacity-90 sm:mb-20 sm:mx-0 sm:px-0 lg:mb-24 xl:mb-28"
+            class="border-b border-gray-700 border-black/[.7] py-4 flex items-center justify-between mb-20 -mx-4 px-4 sm:mx-0 sm:px-0 lg:mb-24 xl:mb-32 2xl:mb-40"
           >
             <div class="flex">
               <a href="/" class="block">

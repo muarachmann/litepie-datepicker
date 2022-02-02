@@ -1,5 +1,5 @@
 <template>
-  <div class="flex py-2 mt-0.5 border-b border-black border-opacity-10 dark:border-litepie-secondary-700 dark:border-opacity-100">
+  <div class="flex py-2 mt-0.5 border-b border-black/[.1] dark:border-litepie-secondary-700/[1]">
     <div
       v-for="(day, keyDay) in weeks"
       :key="keyDay"

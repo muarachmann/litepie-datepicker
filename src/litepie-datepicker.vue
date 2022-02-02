@@ -69,7 +69,7 @@
           class="fixed inset-0 z-50 overflow-y-auto bg-white shadow-sm sm:overflow-visible sm:static sm:z-auto dark:bg-litepie-secondary-800 sm:rounded-lg"
         >
           <div
-            class="litepie-datepicker static sm:relative w-full bg-white sm:rounded-lg sm:shadow-sm border-0 sm:border border-black border-opacity-10 px-3 py-3 sm:px-1 sm:py-1.5 dark:bg-litepie-secondary-800 dark:border-litepie-secondary-700 dark:border-opacity-100"
+            class="litepie-datepicker static sm:relative w-full bg-white sm:rounded-lg sm:shadow-sm border-0 sm:border border-black/[.1] px-3 py-3 sm:px-1 sm:py-1.5 dark:bg-litepie-secondary-800 dark:border-litepie-secondary-700/[1]"
           >
             <div class="flex flex-wrap sm:flex-nowrap">
               <!--          Shortcut-->
@@ -173,7 +173,7 @@
             <!--          Footer-->
             <div v-if="!autoApply">
               <div
-                class="mt-2 mx-2 py-1.5 border-t border-black border-opacity-10 dark:border-litepie-secondary-700 dark:border-opacity-100"
+                class="mt-2 mx-2 py-1.5 border-t border-black/[.1] dark:border-litepie-secondary-700/[1]"
               >
                 <div class="mt-1.5 sm:flex sm:flex-row-reverse">
                   <button
@@ -197,7 +197,7 @@
             </div>
             <div v-else class="sm:hidden">
               <div
-                class="mt-2 mx-2 py-1.5 border-t border-black border-opacity-10 dark:border-litepie-secondary-700 dark:border-opacity-100"
+                class="mt-2 mx-2 py-1.5 border-t border-black/[.1] dark:border-litepie-secondary-700/[1]"
               >
                 <div class="mt-1.5 sm:flex sm:flex-row-reverse">
                   <button
@@ -1486,7 +1486,7 @@ export default /*#__PURE__*/ defineComponent({
 }
 .litepie-datepicker::before {
   content: '';
-  @apply absolute left-3 top-0 w-4 h-4 bg-white shadow border border-black border-opacity-10 dark:bg-litepie-secondary-800 dark:border-litepie-secondary-700 dark:border-opacity-100;
+  @apply absolute top-0 w-4 h-4 bg-white shadow border border-black/[.1] dark:bg-litepie-secondary-800 dark:border-litepie-secondary-700;
   transform: translate(50%, -50%) rotate(-45deg);
   clip-path: polygon(
     calc(var(--litepie-datepicker) * -1) calc(var(--litepie-datepicker) * -1),
